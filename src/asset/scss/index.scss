@@ -1,0 +1,186 @@
+@import "modern-normalize";
+@import "variable";
+
+root {
+    font-size: 16px;
+}
+
+body {
+    background: $accent-color;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+
+        .svg-wave {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        .main {
+            width: 90vw;
+            max-width: 920px;
+            margin: 5rem auto;
+            background: $white-color;
+            border-radius: 0.5rem;
+            padding: 2.5rem 2rem;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-gap: 1rem 2rem;
+            gap: 1rem 2rem;
+
+            .header {
+                text-align: left;
+
+                &__headline {
+                    font-family: $Kanit;
+                    font-size: 3.25rem;
+                    margin-top: 0;
+                    color: $main-text-color;
+
+                }
+
+                &__number {
+                    font-family: $Poppins;
+                    font-size: 3rem;
+                    font-weight: bold;
+                    margin: 0;
+                    color: $main-text-color;
+
+                }
+
+                &__text {
+                    color: $minor-text-color;
+                    font-family: $Sarabun;
+                }
+            }
+
+            .article {
+                padding: 1rem 1.5rem .5rem 1.5rem;
+                border: 2px solid #eae6eb;
+                margin-bottom: 1rem;
+                padding-bottom:-5px;
+                border-radius: .25rem;
+                box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+
+                .accordian {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    &__headline {
+                        font-family: $Kanit;
+                        color: $main-text-color;
+                        font-size: 1.25rem;
+                        margin: 0;
+                    }
+
+                    &__open {
+                        transform: rotate(0deg);
+                        transition: all .5s;
+
+                    }
+
+                    &__close {
+                        transform: rotate(45deg); 
+                        transition: all .5s;
+                    }
+                    .react-icons {
+                        color:$accent-color;
+                    }
+                }
+
+                .unset {
+                    max-height: 0px;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all .5s;
+
+                    hr {
+                        background: $minor-text-color;
+                        opacity: 0.25;
+                        height: 1px;
+                    }
+
+                    .description {
+                        font-family: $Sarabun;
+                        color: $minor-text-color;
+                        margin-top: .5rem;
+                        margin-bottom: .5rem;
+                    }
+                }
+
+                .active {
+                    max-height: 300px;
+                    opacity: 1;
+                    visibility: unset;
+                    transition: all .5s;
+
+                    hr {
+                        background: $minor-text-color;
+                        opacity: 0.25;
+                        height: 1px;
+                    }
+
+                    .description {
+                        font-family: $Sarabun;
+                        color: $minor-text-color;
+                        margin-top: .5rem;
+                        margin-bottom: .5rem;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width:640px) {
+    body {
+        .container {
+            .main {
+                grid-template-columns: unset;
+
+                .header {
+                    text-align: left;
+
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        width: 3px;
+                        height: 125px;
+                        background: $accent-color;
+                    }
+
+                    &__headline {
+                        margin-left: .75rem;
+                        font-family: $Kanit;
+                        font-size: 2.25rem;
+                        margin-top: 0;
+                        color: $main-text-color;
+
+                    }
+
+                    &__number {
+                        margin-left: .75rem;
+                    }
+                }
+
+                .article {
+
+                    .accordian {
+
+                        &__headline {
+                            font-size: 1rem;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
